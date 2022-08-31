@@ -9,3 +9,9 @@ aplicativo Marvel e seus Super Hérios
 #### 4 - MODULO - "APP / CORE"
 #### 5 - DETEKT - "Certificar Código"
 #### 6 - Jetpack - Navigation
+--------------------------------------------------------------------------------------------------------------------
+1. Utilizando o Detekt
+    - [01-config-module](https://github.com/joaoboscocordeiro/AppMarvel/tree/01-config-module)
+
+2. Utilizando o Componente de Navegação 
+    - [02-config-navigation](https://github.com/joaoboscocordeiro/AppMarvel/tree/02-config-navigation)

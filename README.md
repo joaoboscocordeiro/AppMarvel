@@ -8,3 +8,4 @@ aplicativo Marvel e seus Super Hérios
 #### 3 - MVVM
 #### 4 - MODULO - "APP / CORE"
 #### 5 - DETEKT - "Certificar Código"
+#### 6 - Jetpack - Navigation

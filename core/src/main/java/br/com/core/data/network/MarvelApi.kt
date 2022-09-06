@@ -8,7 +8,7 @@ import retrofit2.http.QueryMap
  * Created by João Bosco on 06/09/2022.
  * e-mail - Support: ti.junior@gmail.com
  */
-interface MarvelAPI {
+interface MarvelApi {
 
     @GET("characters")
     suspend fun getCharacters(

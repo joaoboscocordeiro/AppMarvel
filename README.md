@@ -10,3 +10,4 @@ aplicativo Marvel e seus Super Hérios
 #### 5 - DETEKT - "Certificar Código"
 #### 6 - Jetpack - Navigation
 #### 7 - Dependence - Hilt
+#### 8 - Retrofit

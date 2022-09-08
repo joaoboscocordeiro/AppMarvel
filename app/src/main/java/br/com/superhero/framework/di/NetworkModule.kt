@@ -1,6 +1,6 @@
 package br.com.superhero.framework.di
 
-import br.com.core.data.network.interceptor.AuthorizationInterceptor
+import br.com.superhero.framework.network.interceptor.AuthorizationInterceptor
 import br.com.superhero.BuildConfig
 import dagger.Module
 import dagger.Provides

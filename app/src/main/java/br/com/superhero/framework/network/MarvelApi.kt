@@ -1,6 +1,6 @@
-package br.com.core.data.network
+package br.com.superhero.framework.network
 
-import br.com.core.data.network.response.DataWrapperResponse
+import br.com.superhero.framework.network.response.DataWrapperResponse
 import retrofit2.http.GET
 import retrofit2.http.QueryMap
 

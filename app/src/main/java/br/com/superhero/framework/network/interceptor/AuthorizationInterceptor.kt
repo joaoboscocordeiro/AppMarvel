@@ -1,4 +1,4 @@
-package br.com.core.data.network.interceptor
+package br.com.superhero.framework.network.interceptor
 
 import okhttp3.Interceptor
 import okhttp3.Response

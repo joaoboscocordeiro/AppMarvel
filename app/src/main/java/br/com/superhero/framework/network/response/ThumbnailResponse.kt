@@ -1,4 +1,4 @@
-package br.com.core.data.network.response
+package br.com.superhero.framework.network.response
 
 /**
  * Created by João Bosco on 05/09/2022.

@@ -5,5 +5,7 @@ package br.com.superhero.framework.network.response
  * e-mail - Support: ti.junior@gmail.com
  */
 data class DataContainerResponse(
+    val offset: Int,
+    val total: Int,
     val results: List<CharacterResponse>
 )

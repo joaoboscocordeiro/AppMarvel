@@ -5,6 +5,7 @@ import br.com.core.data.repository.CharactersRemoteDataSource
 import br.com.core.data.repository.CharactersRepository
 import br.com.core.domain.model.Character
 import br.com.superhero.framework.network.response.DataWrapperResponse
+import br.com.superhero.framework.paging.CharactersPagingSource
 import javax.inject.Inject
 
 /**
@@ -16,6 +17,6 @@ class CharactersRepositoryImpl @Inject constructor(
 ) : CharactersRepository {
 
     override fun getCharacters(query: String): PagingSource<Int, Character> {
-        
+        return CharactersPagingSource(remoteDataSource, query)
     }
 }

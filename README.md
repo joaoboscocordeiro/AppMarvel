@@ -11,3 +11,5 @@ aplicativo Marvel e seus Super Hérios
 #### 6 - Jetpack - Navigation
 #### 7 - Dependence - Hilt
 #### 8 - Retrofit
+#### 9 - Paging 3
+#### 10 - Shimmer

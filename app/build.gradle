@@ -1,9 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-kapt'
 }
 
+apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 apply plugin: "androidx.navigation.safeargs"
 apply plugin: 'kotlin-parcelize'
@@ -14,12 +14,11 @@ def apikeyProperties = new Properties()
 apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
 
 android {
-    compileSdk 30
-
+    compileSdk 31
     defaultConfig {
         applicationId "br.com.superhero"
         minSdk 23
-        targetSdk 30
+        targetSdk 31
         versionCode 1
         versionName "1.0"
 
@@ -43,7 +42,7 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
-        freeCompilerArgs += ["-xopt-in=kotlin.RequiresOptIn"]
+        //freeCompilerArgs += ["-xopt-in=kotlin.RequiresOptIn"]
     }
     buildFeatures {
         viewBinding = true
@@ -68,7 +67,7 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
     // ViewModel and LiveData
-    def lifecycle_version = "2.3.1"
+    def lifecycle_version = "2.4.0"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
@@ -99,9 +98,9 @@ dependencies {
     implementation "androidx.datastore:datastore-preferences:1.0.0-rc02"
 
     // Unit tests
-    testImplementation 'junit:junit:4.13.1'
+    testImplementation 'junit:junit:4.13.2'
     testImplementation "androidx.arch.core:core-testing:2.1.0"
-    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.2'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1'
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0"
     testImplementation "androidx.room:room-testing:$room_version"
 

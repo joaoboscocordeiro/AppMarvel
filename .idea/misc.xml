@@ -3,12 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/workspace/SuperHero/app/src/main/res/drawable/ic_dissatisfied.xml" value="0.15" />
         <entry key="..\:/workspace/SuperHero/app/src/main/res/drawable/ic_favorite.xml" value="0.112" />
         <entry key="..\:/workspace/SuperHero/app/src/main/res/layout/activity_main.xml" value="0.21" />
         <entry key="..\:/workspace/SuperHero/app/src/main/res/layout/fragment_about.xml" value="0.20416666666666666" />
         <entry key="..\:/workspace/SuperHero/app/src/main/res/layout/fragment_characters.xml" value="0.20416666666666666" />
         <entry key="..\:/workspace/SuperHero/app/src/main/res/layout/fragment_favorites.xml" value="0.20416666666666666" />
+        <entry key="..\:/workspace/SuperHero/app/src/main/res/layout/include_view_characters_error_state.xml" value="0.20416666666666666" />
+        <entry key="..\:/workspace/SuperHero/app/src/main/res/layout/include_view_characters_loading_state.xml" value="0.20416666666666666" />
         <entry key="..\:/workspace/SuperHero/app/src/main/res/layout/item_character.xml" value="0.20416666666666666" />
+        <entry key="..\:/workspace/SuperHero/app/src/main/res/layout/item_character_load_more_state.xml" value="0.25" />
+        <entry key="..\:/workspace/SuperHero/app/src/main/res/layout/shimmer_layout_character_item.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>

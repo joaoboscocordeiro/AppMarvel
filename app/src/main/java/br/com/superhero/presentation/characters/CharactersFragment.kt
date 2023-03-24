@@ -14,7 +14,6 @@ import androidx.paging.LoadState
 import br.com.superhero.R
 import br.com.superhero.databinding.FragmentCharactersBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -54,7 +53,9 @@ class CharactersFragment : Fragment(R.layout.fragment_characters) {
             scrollToPosition(0)
             setHasFixedSize(true)
             adapter = charactersAdapter.withLoadStateFooter(
-                footer = CharactersLoadStateAdapter(charactersAdapter::retry)
+                footer = CharactersLoadStateAdapter(
+                    charactersAdapter::retry
+                )
             )
         }
     }

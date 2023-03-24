@@ -11,5 +11,5 @@ aplicativo Marvel e seus Super Hérios
 
 --------------------------------------------------------------------------------------------------------------------
 
-2. Utilizando o Componente de Navegação 
+1. Utilizando o Componente de Navegação 
     - [02-config-navigation](https://github.com/joaoboscocordeiro/AppMarvel/tree/02-config-navigation)

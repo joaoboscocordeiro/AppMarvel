@@ -13,3 +13,4 @@ aplicativo Marvel e seus Super Hérios
 #### 8 - Retrofit
 #### 9 - Paging 3
 #### 10 - Shimmer
+#### 11 - Tests

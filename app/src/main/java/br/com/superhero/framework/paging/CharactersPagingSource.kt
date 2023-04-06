@@ -31,6 +31,7 @@ class CharactersPagingSource(
             }
 
             val response = remoteDataSource.fetchCharacters(queries)
+
             val responseOffset = response.data.offset
             val totalCharacters = response.data.total
 

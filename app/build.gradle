@@ -14,6 +14,14 @@ def apikeyProperties = new Properties()
 apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('C:\\ProjetosApp\\PROJETOS_2023\\Kotlin\\SuperHero\\store\\marvel_app_key_store.jks')
+            storePassword 'blxpo@6t'
+            keyAlias 'marvel-app'
+            keyPassword 'blxpo@6t'
+        }
+    }
     compileSdk 31
 
     defaultConfig {
@@ -43,6 +51,7 @@ android {
             'proguard-rules-staging.pro'
         }
         release {
+            signingConfig signingConfigs.release
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'

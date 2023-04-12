@@ -17,7 +17,7 @@ apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
 android {
     signingConfigs {
         release {
-            storeFile file('/ProjetosApp/PROJETOS_2023/Kotlin/SuperHero/store/marvel_app_key_store')
+            storeFile file('C:\\ProjetosApp\\PROJETOS_2023\\Kotlin\\SuperHero\\store\\marvel_app_key_store.jks')
             storePassword 'blxpo@6t'
             keyAlias 'marvel-app'
             keyPassword 'blxpo@6t'

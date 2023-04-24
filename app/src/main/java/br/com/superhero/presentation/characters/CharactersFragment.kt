@@ -10,12 +10,17 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.FragmentNavigatorExtras
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import br.com.superhero.R
 import br.com.superhero.databinding.FragmentCharactersBinding
+import br.com.superhero.framework.imageloader.ImageLoader
+import br.com.superhero.presentation.detail.DetailViewArg
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class CharactersFragment : Fragment(R.layout.fragment_characters) {
@@ -24,6 +29,9 @@ class CharactersFragment : Fragment(R.layout.fragment_characters) {
     private val binding: FragmentCharactersBinding get() = _binding!!
 
     private val viewModel: CharactersViewModel by viewModels()
+
+    @Inject
+    lateinit var imageLoader: ImageLoader
 
     private lateinit var charactersAdapter: CharactersAdapter
 
@@ -48,7 +56,23 @@ class CharactersFragment : Fragment(R.layout.fragment_characters) {
     }
 
     private fun initCharactersAdapter() {
-        charactersAdapter = CharactersAdapter()
+        charactersAdapter = CharactersAdapter(imageLoader) { character, view ->
+            val extras = FragmentNavigatorExtras(
+                view to character.name
+            )
+
+            val directions = CharactersFragmentDirections
+                .actionCharactersFragmentToDetailFragment(
+                    character.name,
+                    DetailViewArg(
+                        characterId = character.id,
+                        name = character.name,
+                        imageUrl =  character.imageUrl
+                    )
+                )
+
+            findNavController().navigate(directions, extras)
+        }
         with(binding.recyclerCharacters) {
             scrollToPosition(0)
             setHasFixedSize(true)
@@ -91,6 +115,11 @@ class CharactersFragment : Fragment(R.layout.fragment_characters) {
                 startShimmer()
             } else stopShimmer()
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     companion object {

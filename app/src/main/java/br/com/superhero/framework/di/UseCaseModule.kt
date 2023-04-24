@@ -2,6 +2,8 @@ package br.com.superhero.framework.di
 
 import br.com.core.usecase.GetCharactersUseCase
 import br.com.core.usecase.GetCharactersUseCaseImpl
+import br.com.core.usecase.GetComicsUseCase
+import br.com.core.usecase.GetComicsUseCaseImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -15,5 +17,8 @@ import dagger.hilt.android.components.ViewModelComponent
 interface UseCaseModule {
 
     @Binds
-    fun bindCharactersUseCase(useCase: GetCharactersUseCaseImpl): GetCharactersUseCase
+    fun bindGetCharactersUseCase(useCase: GetCharactersUseCaseImpl): GetCharactersUseCase
+
+    @Binds
+    fun bindGetComicsUseCase(useCase: GetComicsUseCaseImpl): GetComicsUseCase
 }

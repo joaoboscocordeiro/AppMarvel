@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.core.domain.model.Character
-import br.com.superhero.R
 import br.com.superhero.databinding.ItemCharacterBinding
 import br.com.superhero.framework.imageloader.ImageLoader
 import br.com.superhero.util.OnCharacterItemClick
@@ -24,7 +23,7 @@ class CharactersViewHolder(
     fun bind(character: Character) {
         textName.text = character.name
         imageCharacter.transitionName = character.name
-        imageLoader.load(imageCharacter, character.imageUrl, R.drawable.ic_img_loading_error)
+        imageLoader.load(imageCharacter, character.imageUrl)
 
         itemView.setOnClickListener {
             onItemClick.invoke(character, imageCharacter)

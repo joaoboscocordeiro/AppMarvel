@@ -1,7 +1,6 @@
 package br.com.superhero.presentation.detail
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.transition.TransitionInflater
-import br.com.superhero.R
 import br.com.superhero.databinding.FragmentDetailBinding
 import br.com.superhero.framework.imageloader.ImageLoader
 import dagger.hilt.android.AndroidEntryPoint
@@ -39,20 +37,31 @@ class DetailFragment : Fragment() {
         val detailViewArg = args.detailViewArg
         binding.imageCharacter.run {
             transitionName = detailViewArg.name
-            imageLoader.load(this, detailViewArg.imageUrl, R.drawable.ic_img_loading_error)
+            imageLoader.load(this, detailViewArg.imageUrl)
         }
 
         setSharedElementTransitionOnEnter()
 
         viewModel.uiState.observe(viewLifecycleOwner) { uiState ->
-            val logResult = when (uiState) {
-                DetailViewModel.UiState.Loading -> "Loading Comics..."
-                is DetailViewModel.UiState.Success -> uiState.comics.toString()
-                DetailViewModel.UiState.Error -> "Error when loading comics."
+            binding.flipperDetail.displayedChild = when (uiState) {
+                DetailViewModel.UiState.Loading -> FLIPPER_CHILD_POSITION_LOADING
+                is DetailViewModel.UiState.Success -> {
+                    binding.recyclerParentDetail.run {
+                        setHasFixedSize(true)
+                        adapter = DetailParentAdapter(uiState.detailParentList, imageLoader)
+                    }
+                    FLIPPER_CHILD_POSITION_DETAIL
+                }
+                DetailViewModel.UiState.Error -> {
+                    binding.includeErrorView.buttonRetry.setOnClickListener {
+                        viewModel.getCharacterCategories(detailViewArg.characterId)
+                    }
+                    FLIPPER_CHILD_POSITION_ERROR
+                }
+                DetailViewModel.UiState.Empty -> FLIPPER_CHILD_POSITION_EMPTY
             }
-            Log.d(DetailFragment::class.simpleName, logResult)
         }
-        viewModel.getComics(detailViewArg.characterId)
+        viewModel.getCharacterCategories(detailViewArg.characterId)
     }
 
     // Define a animação da transição como "move"
@@ -66,5 +75,12 @@ class DetailFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    companion object {
+        private const val FLIPPER_CHILD_POSITION_LOADING = 0
+        private const val FLIPPER_CHILD_POSITION_DETAIL = 1
+        private const val FLIPPER_CHILD_POSITION_ERROR = 2
+        private const val FLIPPER_CHILD_POSITION_EMPTY = 3
     }
 }

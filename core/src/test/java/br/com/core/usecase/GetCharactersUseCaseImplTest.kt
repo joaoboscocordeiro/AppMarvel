@@ -21,10 +21,10 @@ import org.mockito.junit.MockitoJUnitRunner
 /**
  * Created by João Bosco on 04/04/2023.
  */
+@ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
 class GetCharactersUseCaseImplTest {
 
-    @ExperimentalCoroutinesApi
     @get:Rule
     var mainCoroutineRule = MainCoroutineRule()
 
@@ -42,7 +42,6 @@ class GetCharactersUseCaseImplTest {
         getCharactersUseCase = GetCharactersUseCaseImpl(repository)
     }
 
-    @ExperimentalCoroutinesApi
     @Test
     fun `should validate flow paging data creation when invoke from use case is called`() =
         runBlockingTest {

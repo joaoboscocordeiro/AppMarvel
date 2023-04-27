@@ -19,10 +19,10 @@ import org.mockito.junit.MockitoJUnitRunner
 /**
  * Created by João Bosco on 27/03/2023.
  */
+@ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
 class CharactersViewModelTest {
 
-    @ExperimentalCoroutinesApi
     @get:Rule
     var mainCoroutineRule = MainCoroutineRule()
 
@@ -40,13 +40,11 @@ class CharactersViewModelTest {
         )
     )
 
-    @ExperimentalCoroutinesApi
     @Before
     fun setUP() {
         charactersViewModel = CharactersViewModel(getCharactersUseCase)
     }
 
-    @ExperimentalCoroutinesApi
     @Test
     fun `should validate the paging data object values when calling charactersPagingData`() =
         runBlockingTest {
@@ -64,7 +62,6 @@ class CharactersViewModelTest {
             assertNotNull(result.first())
         }
 
-    @ExperimentalCoroutinesApi
     @Test(expected = RuntimeException::class)
     fun `should throw an exception when the calling to the use case returns an exception`() =
         runBlockingTest {

@@ -4,15 +4,13 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import br.com.core.data.repository.CharactersRemoteDataSource
 import br.com.core.domain.model.Character
-import br.com.superhero.framework.network.response.DataWrapperResponse
-import br.com.superhero.framework.network.response.toCharacterModel
 
 /**
  * Created by João Bosco on 09/09/2022.
  * e-mail - Support: ti.junior@gmail.com
  */
 class CharactersPagingSource(
-    private val remoteDataSource: CharactersRemoteDataSource<DataWrapperResponse>,
+    private val remoteDataSource: CharactersRemoteDataSource,
     private val query: String
 ) : PagingSource<Int, Character>() {
 
@@ -30,13 +28,13 @@ class CharactersPagingSource(
                 queries["nameStartsWith"] = query
             }
 
-            val response = remoteDataSource.fetchCharacters(queries)
+            val characterPaging = remoteDataSource.fetchCharacters(queries)
 
-            val responseOffset = response.data.offset
-            val totalCharacters = response.data.total
+            val responseOffset = characterPaging.offset
+            val totalCharacters = characterPaging.total
 
             LoadResult.Page(
-                data = response.data.results.map { it.toCharacterModel() },
+                data = characterPaging.characters,
                 prevKey = null,
                 nextKey = if (responseOffset < totalCharacters) {
                     responseOffset + LIMIT

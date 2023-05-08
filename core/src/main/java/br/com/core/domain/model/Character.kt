@@ -5,6 +5,7 @@ package br.com.core.domain.model
  * e-mail - Support: ti.junior@gmail.com
  */
 data class Character(
+    val id: Int,
     val name: String,
     val imageUrl: String
 )

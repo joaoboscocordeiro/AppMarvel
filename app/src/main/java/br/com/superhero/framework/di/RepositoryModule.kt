@@ -3,7 +3,6 @@ package br.com.superhero.framework.di
 import br.com.core.data.repository.CharactersRemoteDataSource
 import br.com.core.data.repository.CharactersRepository
 import br.com.superhero.framework.CharactersRepositoryImpl
-import br.com.superhero.framework.network.response.DataWrapperResponse
 import br.com.superhero.framework.remote.RetrofitCharactersDataSource
 import dagger.Binds
 import dagger.Module
@@ -23,5 +22,5 @@ interface RepositoryModule {
     fun bindCharacterRepository(repository: CharactersRepositoryImpl): CharactersRepository
 
     @Binds
-    fun bindRemoteDataSource(dataSource: RetrofitCharactersDataSource): CharactersRemoteDataSource<DataWrapperResponse>
+    fun bindRemoteDataSource(dataSource: RetrofitCharactersDataSource): CharactersRemoteDataSource
 }

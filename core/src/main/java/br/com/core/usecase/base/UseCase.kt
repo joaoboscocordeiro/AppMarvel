@@ -7,7 +7,6 @@ import kotlinx.coroutines.flow.flow
 
 /**
  * Created by João Bosco on 12/09/2022.
- * e-mail - Support: ti.junior@gmail.com
  */
 
 abstract class UseCase<in P, R> {

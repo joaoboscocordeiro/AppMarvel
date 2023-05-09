@@ -17,14 +17,13 @@ apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
 android {
     signingConfigs {
         release {
-            storeFile file('C:\\ProjetosApp\\PROJETOS_2023\\Kotlin\\SuperHero\\store\\marvel_app_key_store.jks')
+            storeFile file('../store/marvel_app_key_store.jks')
             storePassword 'blxpo@6t'
             keyAlias 'marvel-app'
             keyPassword 'blxpo@6t'
         }
     }
     compileSdk 31
-
     defaultConfig {
         applicationId "br.com.superhero"
         minSdk 23
@@ -51,9 +50,9 @@ android {
             debuggable true
         }
         staging {
-            applicationIdSuffix '.staging'
-            minifyEnabled true
             initWith debug
+            minifyEnabled true
+            applicationIdSuffix '.staging'
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro',
                     'proguard-rules-staging.pro'
         }
@@ -82,8 +81,8 @@ dependencies {
     implementation project(':core')
 
     // AndroidX
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     implementation 'androidx.fragment:fragment-ktx:1.5.2'
 

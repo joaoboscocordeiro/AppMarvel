@@ -8,6 +8,8 @@ import br.com.core.usecase.GetCharacterCategoriesUseCase
 import br.com.core.usecase.GetCharacterCategoriesUseCaseImpl
 import br.com.core.usecase.GetCharactersUseCase
 import br.com.core.usecase.GetCharactersUseCaseImpl
+import br.com.core.usecase.RemoveFavoriteUseCase
+import br.com.core.usecase.RemoveFavoriteUseCaseImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -32,4 +34,7 @@ interface UseCaseModule {
 
     @Binds
     fun bindAddFavoriteUseCase(useCase: AddFavoriteUseCaseImpl): AddFavoriteUseCase
+
+    @Binds
+    fun bindRemoveFavoriteUseCase(useCase: RemoveFavoriteUseCaseImpl): RemoveFavoriteUseCase
 }

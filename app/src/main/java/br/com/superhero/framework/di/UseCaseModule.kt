@@ -2,6 +2,8 @@ package br.com.superhero.framework.di
 
 import br.com.core.usecase.AddFavoriteUseCase
 import br.com.core.usecase.AddFavoriteUseCaseImpl
+import br.com.core.usecase.CheckFavoriteUseCase
+import br.com.core.usecase.CheckFavoriteUseCaseImpl
 import br.com.core.usecase.GetCharacterCategoriesUseCase
 import br.com.core.usecase.GetCharacterCategoriesUseCaseImpl
 import br.com.core.usecase.GetCharactersUseCase
@@ -24,6 +26,9 @@ interface UseCaseModule {
     @Binds
     fun bindGetCharacterCategoriesUseCase(useCase: GetCharacterCategoriesUseCaseImpl):
             GetCharacterCategoriesUseCase
+
+    @Binds
+    fun bindCheckFavoriteUseCase(useCase: CheckFavoriteUseCaseImpl): CheckFavoriteUseCase
 
     @Binds
     fun bindAddFavoriteUseCase(useCase: AddFavoriteUseCaseImpl): AddFavoriteUseCase

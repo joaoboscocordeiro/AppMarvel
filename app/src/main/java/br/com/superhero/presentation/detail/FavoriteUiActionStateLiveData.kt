@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.liveData
 import androidx.lifecycle.switchMap
 import br.com.core.usecase.AddFavoriteUseCase
+import br.com.core.usecase.CheckFavoriteUseCase
 import br.com.superhero.R
 import br.com.superhero.presentation.extensions.watchStatus
 import kotlin.coroutines.CoroutineContext
@@ -17,6 +18,7 @@ import kotlin.coroutines.CoroutineContext
 
 class FavoriteUiActionStateLiveData(
     private val coroutineContext: CoroutineContext,
+    private val checkFavoriteUseCase: CheckFavoriteUseCase,
     private val addFavoriteUseCase: AddFavoriteUseCase
 ) {
 
@@ -24,7 +26,19 @@ class FavoriteUiActionStateLiveData(
     val state: LiveData<UiState> = action.switchMap {
         liveData(coroutineContext) {
             when (it) {
-                Action.Default -> emit(UiState.Icon(R.drawable.ic_favorite_unchecked))
+                is Action.CheckFavorite -> {
+                    checkFavoriteUseCase.invoke(
+                        CheckFavoriteUseCase.Params(it.characterId)
+                    ).watchStatus(
+                        success = { isFavorite ->
+                            val icon = if (isFavorite) {
+                                R.drawable.ic_favorite_checked
+                            } else R.drawable.ic_favorite_unchecked
+                            emit(UiState.Icon(icon))
+                        },
+                        error = {}
+                    )
+                }
                 is Action.Update -> {
                     it.detailViewArg.run {
                         addFavoriteUseCase.invoke(
@@ -34,7 +48,7 @@ class FavoriteUiActionStateLiveData(
                                 emit(UiState.Loading)
                             },
                             success = {
-                               emit(UiState.Icon(R.drawable.ic_favorite_checked))
+                                emit(UiState.Icon(R.drawable.ic_favorite_checked))
                             },
                             error = {
                                 emit(UiState.Error(R.string.error_add_favorite))
@@ -46,8 +60,8 @@ class FavoriteUiActionStateLiveData(
         }
     }
 
-    fun setDefault() {
-        action.value = Action.Default
+    fun checkFavorite(characterId: Int) {
+        action.value = Action.CheckFavorite(characterId)
     }
 
     fun update(detailViewArg: DetailViewArg) {
@@ -61,7 +75,7 @@ class FavoriteUiActionStateLiveData(
     }
 
     sealed class Action {
-        object Default : Action()
+        data class CheckFavorite(val characterId: Int) : Action()
         data class Update(val detailViewArg: DetailViewArg) : Action()
     }
 }

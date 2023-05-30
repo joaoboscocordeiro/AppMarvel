@@ -14,3 +14,4 @@ aplicativo Marvel e seus Super Hérios
 #### 9 - Paging 3
 #### 10 - Shimmer
 #### 11 - Tests
+#### 12 - ROOM / DB

@@ -8,6 +8,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import br.com.superhero.R
 import br.com.superhero.extension.asJsonString
 import br.com.superhero.framework.di.BaseUrlModule
+import br.com.superhero.framework.di.CoroutinesModule
 import br.com.superhero.launchFragmentInHiltContainer
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
@@ -24,7 +25,7 @@ import org.junit.runner.RunWith
  * Created by João Bosco on 13/04/2023.
  */
 @RunWith(AndroidJUnit4::class)
-@UninstallModules(BaseUrlModule::class)
+@UninstallModules(BaseUrlModule::class, CoroutinesModule::class)
 @HiltAndroidTest
 class CharactersFragmentTest {
 
@@ -95,14 +96,4 @@ class CharactersFragmentTest {
     fun tearDown() {
         server.shutdown()
     }
-
-//    private fun waitFor(delay: Long): ViewAction {
-//        return object : ViewAction {
-//            override fun getConstraints(): Matcher<View> = isRoot()
-//            override fun getDescription(): String = "wait for $delay milliseconds"
-//            override fun perform(uiController: UiController, view: View?) {
-//                uiController.loopMainThreadForAtLeast(delay)
-//            }
-//        }
-//    }
 }

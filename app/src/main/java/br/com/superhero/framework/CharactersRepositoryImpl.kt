@@ -11,7 +11,6 @@ import javax.inject.Inject
 
 /**
  * Created by João Bosco on 08/09/2022.
- * e-mail - Support: ti.junior@gmail.com
  */
 class CharactersRepositoryImpl @Inject constructor(
     private val remoteDataSource: CharactersRemoteDataSource

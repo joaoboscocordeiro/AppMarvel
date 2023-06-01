@@ -79,7 +79,7 @@ class DetailFragment : Fragment() {
             }
 
             state.observe(viewLifecycleOwner) { uiState ->
-                binding.flipperFavorite.displayedChild = when (uiState) {
+                binding.flipperFavoriteDetail.displayedChild = when (uiState) {
                     FavoriteUiActionStateLiveData.UiState.Loading ->
                         FLIPPER_FAVORITE_CHILD_POSITION_LOADING
                     is FavoriteUiActionStateLiveData.UiState.Icon -> {

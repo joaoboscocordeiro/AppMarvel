@@ -18,7 +18,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <ViewFlipper
-        android:id="@+id/flipper_favorite"
+        android:id="@+id/flipper_favorite_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"

@@ -16,7 +16,7 @@ aplicativo Marvel e seus Super Hérios
 #### 11 - Tests
 #### 12 - ROOM / DB
 
---------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 1. Utilizando o Detekt
     - [01-config-module](https://github.com/joaoboscocordeiro/AppMarvel/tree/01-config-module)

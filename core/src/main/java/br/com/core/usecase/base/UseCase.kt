@@ -7,7 +7,6 @@ import kotlinx.coroutines.flow.flow
 
 /**
  * Created by João Bosco on 12/09/2022.
- * e-mail - Support: ti.junior@gmail.com
  */
 
 abstract class UseCase<in P, R> {
@@ -25,4 +24,11 @@ abstract class PagingUseCase<in P, R : Any> {
     operator fun invoke(params: P): Flow<PagingData<R>> = createFlowObservable(params)
 
     protected abstract fun createFlowObservable(params: P): Flow<PagingData<R>>
+}
+
+abstract class FlowUseCase<in P, R : Any> {
+
+    suspend operator fun invoke(params: P): Flow<R> = createFlowObservable(params)
+
+    protected abstract suspend fun createFlowObservable(params: P): Flow<R>
 }

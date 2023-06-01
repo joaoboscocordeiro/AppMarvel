@@ -7,15 +7,18 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.FragmentNavigatorExtras
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import br.com.superhero.R
 import br.com.superhero.databinding.FragmentCharactersBinding
+import br.com.superhero.framework.imageloader.ImageLoader
+import br.com.superhero.presentation.detail.DetailViewArg
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class CharactersFragment : Fragment(R.layout.fragment_characters) {
@@ -25,12 +28,34 @@ class CharactersFragment : Fragment(R.layout.fragment_characters) {
 
     private val viewModel: CharactersViewModel by viewModels()
 
-    private lateinit var charactersAdapter: CharactersAdapter
+    @Inject
+    lateinit var imageLoader: ImageLoader
+
+    private val charactersAdapter: CharactersAdapter by lazy {
+        CharactersAdapter(imageLoader) { character, view ->
+            val extras = FragmentNavigatorExtras(
+                view to character.name
+            )
+
+            val directions = CharactersFragmentDirections
+                .actionCharactersFragmentToDetailFragment(
+                    character.name,
+                    DetailViewArg(
+                        characterId = character.id,
+                        name = character.name,
+                        imageUrl = character.imageUrl
+                    )
+                )
+
+            findNavController().navigate(directions, extras)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ) = FragmentCharactersBinding.inflate(inflater, container, false).apply { _binding = this }.root
+    ) = FragmentCharactersBinding.inflate(inflater, container, false)
+        .apply { _binding = this }.root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -38,25 +63,29 @@ class CharactersFragment : Fragment(R.layout.fragment_characters) {
         initCharactersAdapter()
         observeInitialLoadState()
 
-        lifecycleScope.launch {
-            viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.charactersPagingData("").collect { pagingData ->
-                    charactersAdapter.submitData(pagingData)
+        viewModel.state.observe(viewLifecycleOwner) { uiState ->
+            when (uiState) {
+                is CharactersViewModel.UiState.SearchResult -> {
+                    charactersAdapter.submitData(viewLifecycleOwner.lifecycle, uiState.data)
                 }
             }
         }
+        viewModel.searchCharacters()
     }
 
     private fun initCharactersAdapter() {
-        charactersAdapter = CharactersAdapter()
+        postponeEnterTransition()
         with(binding.recyclerCharacters) {
-            scrollToPosition(0)
             setHasFixedSize(true)
             adapter = charactersAdapter.withLoadStateFooter(
                 footer = CharactersLoadStateAdapter(
                     charactersAdapter::retry
                 )
             )
+            viewTreeObserver.addOnPreDrawListener {
+                startPostponedEnterTransition()
+                true
+            }
         }
     }
 
@@ -75,7 +104,7 @@ class CharactersFragment : Fragment(R.layout.fragment_characters) {
                     is LoadState.Error -> {
                         setShimmerVisibility(false)
                         binding.includeViewCharactersErrorState.buttonRetry.setOnClickListener {
-                            charactersAdapter.refresh()
+                            charactersAdapter.retry()
                         }
                         FLIPPER_CHILD_ERROR
                     }
@@ -91,6 +120,11 @@ class CharactersFragment : Fragment(R.layout.fragment_characters) {
                 startShimmer()
             } else stopShimmer()
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     companion object {

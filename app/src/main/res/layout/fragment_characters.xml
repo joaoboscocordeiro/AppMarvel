@@ -6,6 +6,7 @@
     android:id="@+id/flipper_characters"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black_800"
     tools:context=".presentation.characters.CharactersFragment">
 
     <include
@@ -22,6 +23,6 @@
 
     <include
         android:id="@+id/include_view_characters_error_state"
-        layout="@layout/include_view_characters_error_state" />
+        layout="@layout/include_error_view" />
 
 </ViewFlipper>

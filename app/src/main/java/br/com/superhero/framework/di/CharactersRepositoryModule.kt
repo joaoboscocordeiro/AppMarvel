@@ -16,7 +16,7 @@ import dagger.hilt.components.SingletonComponent
 
 @Module
 @InstallIn(SingletonComponent::class)
-interface RepositoryModule {
+interface CharactersRepositoryModule {
 
     @Binds
     fun bindCharacterRepository(repository: CharactersRepositoryImpl): CharactersRepository

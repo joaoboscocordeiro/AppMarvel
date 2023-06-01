@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "95457157020",
+    "firebase_url": "https://ifood-jb-default-rtdb.firebaseio.com",
+    "project_id": "ifood-jb",
+    "storage_bucket": "ifood-jb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:95457157020:android:364d7ab205353bc6f2f259",
+        "android_client_info": {
+          "package_name": "br.com.superhero"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "95457157020-3i48j0mpqv395hrnl34tg9u3qqresvm6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_NEZZVhKeQSeNSDOtspe5vnqM5oonT7Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "95457157020-3i48j0mpqv395hrnl34tg9u3qqresvm6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:95457157020:android:e39a57616d648234f2f259",
+        "android_client_info": {
+          "package_name": "br.com.superhero.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "95457157020-3i48j0mpqv395hrnl34tg9u3qqresvm6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_NEZZVhKeQSeNSDOtspe5vnqM5oonT7Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "95457157020-3i48j0mpqv395hrnl34tg9u3qqresvm6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:95457157020:android:9d8d9d6d6f5cbe71f2f259",
+        "android_client_info": {
+          "package_name": "br.com.superhero.staging"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "95457157020-3i48j0mpqv395hrnl34tg9u3qqresvm6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_NEZZVhKeQSeNSDOtspe5vnqM5oonT7Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "95457157020-3i48j0mpqv395hrnl34tg9u3qqresvm6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

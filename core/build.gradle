@@ -21,7 +21,7 @@ dependencies {
     api "com.squareup.retrofit2:converter-gson:$retrofit_version"
 
     // Gson
-    api 'com.google.code.gson:gson:2.8.6'
+    api 'com.google.code.gson:gson:2.10.1'
 
     // Paging3 Common
     implementation "androidx.paging:paging-common:$paging_version"
@@ -30,5 +30,8 @@ dependencies {
     implementation 'javax.inject:javax.inject:1'
 
     // Coroutines core
-    api "org.jetbrains.kotlin:kotlin-coroutines-core:$coroutines_version"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+
+    // Unit tests
+    testImplementation project(":testing")
 }

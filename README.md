@@ -12,9 +12,6 @@ aplicativo Marvel e seus Super Hérios
 #### 7 - Dependence - Hilt
 #### 8 - Retrofit
 #### 9 - Paging 3
-#### 10 - Shimmer
-#### 11 - Tests
-#### 12 - ROOM / DB
 
 ----------------------------------------------------------------------------------------------------
 

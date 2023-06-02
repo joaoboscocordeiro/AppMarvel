@@ -10,6 +10,7 @@ import br.com.superhero.extension.asJsonString
 import br.com.superhero.framework.di.BaseUrlModule
 import br.com.superhero.framework.di.CoroutinesModule
 import br.com.superhero.launchFragmentInHiltContainer
+import br.com.superhero.presentation.characters.adapters.CharactersViewHolder
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules

@@ -1,4 +1,4 @@
-package br.com.superhero.presentation.characters
+package br.com.superhero.presentation.characters.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

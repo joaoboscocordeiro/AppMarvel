@@ -1,4 +1,4 @@
-package br.com.superhero.presentation.characters
+package br.com.superhero.presentation.characters.adapters
 
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
@@ -10,7 +10,6 @@ import javax.inject.Inject
 
 /**
  * Created by João Bosco on 08/09/2022.
- * e-mail - Support: ti.junior@gmail.com
  */
 class CharactersAdapter @Inject constructor(
     private val imageLoader: ImageLoader,

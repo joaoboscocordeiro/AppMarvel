@@ -15,6 +15,7 @@ aplicativo Marvel e seus Super Hérios
 #### 10 - Shimmer
 #### 11 - Tests
 #### 12 - ROOM / DB
+#### 13 - Offline First / Cache Local
 
 ----------------------------------------------------------------------------------------------------
 

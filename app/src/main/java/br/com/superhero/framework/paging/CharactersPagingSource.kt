@@ -7,7 +7,6 @@ import br.com.core.domain.model.Character
 
 /**
  * Created by João Bosco on 09/09/2022.
- * e-mail - Support: ti.junior@gmail.com
  */
 class CharactersPagingSource(
     private val remoteDataSource: CharactersRemoteDataSource,

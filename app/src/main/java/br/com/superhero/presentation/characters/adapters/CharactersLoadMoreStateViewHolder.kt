@@ -1,4 +1,4 @@
-package br.com.superhero.presentation.characters
+package br.com.superhero.presentation.characters.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,7 +9,6 @@ import br.com.superhero.databinding.ItemCharacterLoadMoreStateBinding
 
 /**
  * Created by João Bosco on 14/09/2022.
- * e-mail - Support: ti.junior@gmail.com
  */
 class CharactersLoadMoreStateViewHolder(
     itemBinding: ItemCharacterLoadMoreStateBinding,

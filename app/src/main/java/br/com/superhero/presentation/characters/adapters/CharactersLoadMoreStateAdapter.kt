@@ -1,4 +1,4 @@
-package br.com.superhero.presentation.characters
+package br.com.superhero.presentation.characters.adapters
 
 import android.view.ViewGroup
 import androidx.paging.LoadState
@@ -6,9 +6,8 @@ import androidx.paging.LoadStateAdapter
 
 /**
  * Created by João Bosco on 14/09/2022.
- * e-mail - Support: ti.junior@gmail.com
  */
-class CharactersLoadStateAdapter(
+class CharactersLoadMoreStateAdapter(
     private val retry: () -> Unit
 ) : LoadStateAdapter<CharactersLoadMoreStateViewHolder>() {
 

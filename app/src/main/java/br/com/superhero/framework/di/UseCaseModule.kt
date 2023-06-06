@@ -6,12 +6,16 @@ import br.com.core.usecase.CheckFavoriteUseCase
 import br.com.core.usecase.CheckFavoriteUseCaseImpl
 import br.com.core.usecase.GetCharacterCategoriesUseCase
 import br.com.core.usecase.GetCharacterCategoriesUseCaseImpl
+import br.com.core.usecase.GetCharactersSortingUseCase
+import br.com.core.usecase.GetCharactersSortingUseCaseImpl
 import br.com.core.usecase.GetCharactersUseCase
 import br.com.core.usecase.GetCharactersUseCaseImpl
 import br.com.core.usecase.GetFavoriteUseCase
 import br.com.core.usecase.GetFavoriteUseCaseImpl
 import br.com.core.usecase.RemoveFavoriteUseCase
 import br.com.core.usecase.RemoveFavoriteUseCaseImpl
+import br.com.core.usecase.SaveCharactersSortingUseCase
+import br.com.core.usecase.SaveCharactersSortingUseCaseImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -42,4 +46,12 @@ interface UseCaseModule {
 
     @Binds
     fun bindGetFavoritesUseCase(useCase: GetFavoriteUseCaseImpl): GetFavoriteUseCase
+
+    @Binds
+    fun bindGetCharactersSortingUseCase(useCase: GetCharactersSortingUseCaseImpl):
+            GetCharactersSortingUseCase
+
+    @Binds
+    fun bindSaveCharactersSortingUseCase(useCase: SaveCharactersSortingUseCaseImpl):
+            SaveCharactersSortingUseCase
 }

@@ -8,6 +8,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 
 /**
  * Created by João Bosco on 06/06/2023.
@@ -20,6 +21,7 @@ interface StorageRepositoryModule {
     @Binds
     fun bindStorageRepository(repository: StorageRepositoryImpl): StorageRepository
 
+    @Singleton
     @Binds
     fun bindLocalDataSource(dataSource: DataStorePreferencesDataSource): StorageLocalDataSource
 }

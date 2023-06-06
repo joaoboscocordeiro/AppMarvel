@@ -2,6 +2,9 @@ package br.com.superhero.presentation.characters
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
@@ -58,6 +61,11 @@ class CharactersFragment : Fragment(R.layout.fragment_characters) {
 
             findNavController().navigate(directions, extras)
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
     }
 
     override fun onCreateView(
@@ -141,6 +149,20 @@ class CharactersFragment : Fragment(R.layout.fragment_characters) {
             if (visibility) {
                 startShimmer()
             } else stopShimmer()
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.characters_menu_item, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_sort -> {
+                findNavController().navigate(R.id.action_charactersFragment_to_sortFragment)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
